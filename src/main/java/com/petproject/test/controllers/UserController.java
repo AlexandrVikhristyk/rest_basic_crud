@@ -1,22 +1,32 @@
 package com.petproject.test.controllers;
 
+import com.petproject.test.entity.CustomUser;
 import com.petproject.test.services.UserService;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+@Controller
 public class UserController {
     private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String index() {
+        return "and_chmo.html";
+    }
 
+    @PostMapping("/login")
+    public String login(String login, String password, String confirmPassword) {
+
+        CustomUser user = new CustomUser(login, password, null);
+        user.setConfirmPassword(confirmPassword);
+        userService.save(user);
+        System.out.println("GGGGGGGGGGGGGGGGGG");
+        return "and_chmo.html";
     }
 }

@@ -4,15 +4,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 public class Role {
+
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private String role;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "role", cascade = CascadeType.ALL)
-    private List<CustomUser> users;
+
+    @ManyToMany(mappedBy = "roles")
+    private Set<CustomUser> users;
 }
