@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
+* {
+  margin: 0;
+  padding: 0; }
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(#e66465, #9198e5);
+  z-index: -1; }
+
+.block-around-forma {
+  padding-top: 100px; }
+
+.formaRegistration {
+  display: flex;
+  justify-content: center;
+  box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.2);
+  width: 20%;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  padding: 30px;
+  background: #ff96d8;
+  font-family: 'Ubuntu', sans-serif; }
+  .formaRegistration input {
+    outline: none;
+    padding: 10px 30px;
+    border: 0px;
+    border-bottom: 2px solid gray;
+    justify-content: center;
+    width: 220px;
+    margin-top: 20px;
+    border-radius: 5px; }
+  .formaRegistration input[type="submit"] {
+    display: flex;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #78abff;
+    margin: 20px auto 0;
+    cursor: pointer;
+    color: white;
+    font-weight: bold; }
+  .formaRegistration span:first-child {
+    color: white;
+    font-size: 20px;
+    padding: 10px; }
+
+#formaRegistration {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #formaRegistration .block {
+    position: relative; }
+  #formaRegistration img {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 32px;
+    left: 12px; }
+
+::placeholder {
+  margin-left: 30px; }
+
+.error {
+  color: red;
+  display: none;
+  padding-top: 5px; }
+
+/*# sourceMappingURL=style.css.map */
