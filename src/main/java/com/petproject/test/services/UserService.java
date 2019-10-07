@@ -4,19 +4,19 @@ import com.petproject.test.dao.RoleRepository;
 import com.petproject.test.dao.UserRepository;
 import com.petproject.test.entity.CustomUser;
 import com.petproject.test.entity.Role;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
 
+    private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
@@ -32,19 +32,29 @@ public class UserService {
     }
 
     @Transactional
-    public boolean save(CustomUser user) {
-        if (userRepository.existsByEmail(user.getEmail())){
-            return false;
-        }
+    public CustomUser save(CustomUser user) {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         Set<Role> roles = new HashSet<>();
-        roles.add(new Role());
-        System.out.println(roles.size());
+        roles.add(roleRepository.getOne(1L));
         user.setRoles(roles);
 
-        userRepository.save(user);
-        return true;
+        return userRepository.save(user);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CustomUser> findAll(){
+        return userRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<CustomUser> findById(Long id){
+        return userRepository.findById(id);
+    }
+
+    @Transactional
+    public void delete(CustomUser user){
+        userRepository.delete(user);
     }
 }

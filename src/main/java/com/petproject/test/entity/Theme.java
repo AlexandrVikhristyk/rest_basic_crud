@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "themes")
 public class Theme {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

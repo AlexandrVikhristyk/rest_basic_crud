@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "questions")
 public class Question {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

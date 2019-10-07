@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "answers")
 public class Answer {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
