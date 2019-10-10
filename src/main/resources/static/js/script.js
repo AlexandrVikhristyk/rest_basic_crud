@@ -14,7 +14,7 @@
     e.preventDefault();
     error.style.display = "none";
 
-    let response = await fetch(`http://localhost:8080/login`, {
+    let response = await fetch(`http://localhost:8080/user`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
