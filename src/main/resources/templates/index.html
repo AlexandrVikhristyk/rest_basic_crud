@@ -5,33 +5,66 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="background"></div>
-    <div class="block-around-forma">
-    <div class="formaRegistration">
-        <span>Forma registration</span>
-            <form id="formaRegistration">
-                <div class="block">
-                    <img src="css/img/email.svg" alt="icon-email">
-                    <input type="email" placeholder="Email" name="login" required>
+<div class="container">
+    <div class="container__block">
+        <div class="container__item item">
+            <div class="font-side side">
+                <div class="block-around-forma">
+                    <div class="formaLogin">
+                        <span>Form Login</span>
+                        <form id="formaLogin">
+                            <div class="block">
+                                <img src="../static/css/img/email.svg" alt="icon-email">
+                                <input type="email" placeholder="Email" name="login" required>
+                            </div>
+                            <div class="block">
+                                <img src="../static/css/img/person.svg" alt="icon-person">
+                                <input type="password" placeholder="Password" name="password" required>
+                            </div>
+                            <span class="error-login"></span>
+                            <input type="submit" value="Log in">
+                            <span>You don`t have account?<a href="#" class="enter"> Register</a></span>
+                        </form>
+                    </div>
                 </div>
-                <div class="block">
-                    <img src="css/img/person.svg" alt="icon-person">
-                    <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="back-side side">
+                <div class="block-around-forma">
+                    <div class="formaRegistration">
+                        <span>Form Registration</span>
+                        <form id="formaRegistration">
+                            <div class="block">
+                                <img src="../static/css/img/email.svg" alt="icon-email">
+                                <input type="email" placeholder="Email" name="login" required>
+                            </div>
+                            <div class="block">
+                                <img src="../static/css/img/person.svg" alt="icon-person" class="person1">
+                                <input type="password" placeholder="Password" name="password" required>
+                            </div>
+                            <div class="block">
+                                <img src="../static/css/img/person.svg" alt="icon-person" class="person2">
+                                <input type="password" placeholder="Confirm password" name="confirmPassword" required>
+                            </div>
+                            <span class="error-registration"></span>
+                            <input type="submit" value="Register">
+                            <span>Already have on account?<a href="#" class="enter"> Log in</a></span>
+                        </form>
+                    </div>
                 </div>
-                <div class="block">
-                    <img src="css/img/person.svg" alt="icon-person">
-                    <input type="password" placeholder="Confirm password" name="confirmPassword" required>
-                </div>
-                <span class="error"></span>
-            <input type="submit">
-        </form>
+            </div>
+        </div>
     </div>
-    </div>
+</div>    
 
-    <script src="js/script.js"></script>
+
+
+
+
+    <script src="../static/js/script.js"></script>
 </body>
 </html>

@@ -12,76 +12,122 @@
 	z-index: -1;
 }
 
-.block-around-forma {
-	padding-top: 100px;
-}
+.container {
+	width: 100%;
+	height: 100%;
+	padding-top: 200px;
 
-.formaRegistration {
-	display: flex;
-	justify-content: center;
-	box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.2);
-	width: 20%;
-	margin: auto;
-	flex-direction: column;
-	text-align: center;
-	border-radius: 10px;
-	padding: 30px;
-	background: #ff96d8;
-	font-family: 'Ubuntu', sans-serif;
+	.container__block {
+		perspective: 550px;
 
-	input {
-		outline: none;
-		padding: 10px 30px;
-		border: 0px;
-		border-bottom: 2px solid gray;
-		justify-content: center;
-		width: 220px;
-		margin-top: 20px;
-		border-radius: 5px;
+		.container__item {
+			width: 500px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+
+			.formaRegistration, .formaLogin {
+				display: flex;
+				justify-content: center;
+				box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.2);
+				flex-direction: column;
+				text-align: center;
+				border-radius: 5px;
+				background: linear-gradient(#ff9cc1, #9198FF);
+				font-family: 'Ubuntu', sans-serif;
+				width: 384px;
+
+				input {
+					outline: none;
+					padding: 10px 30px;
+					border: 0px;
+					border-bottom: 2px solid gray;
+					justify-content: center;
+					width: 220px;
+					margin-top: 20px;
+					border-radius: 5px;
+					}
+
+				input[type="submit"] {
+					display: flex;
+					border: 0px;
+					padding: 10px;
+					border-radius: 5px;
+					background-color: #458cff;
+					margin: 20px auto 0;
+					cursor: pointer;
+					color: white;
+					font-weight: bold;
+				}
+
+				span:first-child {
+					color: white;
+					font-size: 20px;
+					padding: 30px 0px 20px 0px;
+				}
+
+				.block {
+					position: relative;
+
+					img {
+						width: 10px;
+						height: 10px;
+						position: absolute;
+						left: 63px;
+						top: 33px;
+					}
+				}
+
+				a {
+					text-decoration: none;
+			    	font-weight: bold;
+			    	color: #4d55ff;
+				}
+
+				#formaRegistration, #formaLogin {
+					span:last-child {
+						color: white;
+    					padding: 25px 0px;
+    					display: block;
+					}
+				}
+			}
 		}
-
-	input[type="submit"] {
-		display: flex;
-		border: 0px;
-		padding: 10px;
-		border-radius: 5px;
-		background-color: #78abff;
-		margin: 20px auto 0;
-		cursor: pointer;
-		color: white;
-		font-weight: bold;
-	}
-
-	span:first-child {
-		color: white;
-		font-size: 20px;
-		padding: 10px;
 	}
 }
 
-#formaRegistration {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.item {
+	transform-style: preserve-3d;
+	position: relative;
+	transition: all 1s;
+}
 
-	.block {
-		position: relative;
-	}
+.font-side {
+	position: absolute;
+	top: 0px;
+	transform: rotateY(180deg);
+	height: 368px;
+}
+.back-side {
+	position: relative;
+	background: #ff96d8;
+	z-index: -1;
+}
+.side {
+	transition: all 1s;
+	backface-visibility: hidden;
+	border-radius: 5px;
+}
 
-	img {
-		position: absolute;
-		width: 10px;
-		height: 10px;
-		top: 32px;
-		left: 12px;
-	}
+.flip {
+	transform: rotateY(180deg) !important;
 }
 
 ::placeholder {
 	margin-left: 30px;
 }
 
-.error {
+.error-registration, .error-login {
 	color: red;
 	display: none;
 	padding-top: 5px;

@@ -10,62 +10,95 @@
   background: linear-gradient(#e66465, #9198e5);
   z-index: -1; }
 
-.block-around-forma {
-  padding-top: 100px; }
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 200px; }
+  .container .container__block {
+    perspective: 550px; }
+    .container .container__block .container__item {
+      width: 500px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center; }
+      .container .container__block .container__item .formaRegistration, .container .container__block .container__item .formaLogin {
+        display: flex;
+        justify-content: center;
+        box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        text-align: center;
+        border-radius: 5px;
+        background: linear-gradient(#ff9cc1, #9198FF);
+        font-family: 'Ubuntu', sans-serif;
+        width: 384px; }
+        .container .container__block .container__item .formaRegistration input, .container .container__block .container__item .formaLogin input {
+          outline: none;
+          padding: 10px 30px;
+          border: 0px;
+          border-bottom: 2px solid gray;
+          justify-content: center;
+          width: 220px;
+          margin-top: 20px;
+          border-radius: 5px; }
+        .container .container__block .container__item .formaRegistration input[type="submit"], .container .container__block .container__item .formaLogin input[type="submit"] {
+          display: flex;
+          border: 0px;
+          padding: 10px;
+          border-radius: 5px;
+          background-color: #458cff;
+          margin: 20px auto 0;
+          cursor: pointer;
+          color: white;
+          font-weight: bold; }
+        .container .container__block .container__item .formaRegistration span:first-child, .container .container__block .container__item .formaLogin span:first-child {
+          color: white;
+          font-size: 20px;
+          padding: 30px 0px 20px 0px; }
+        .container .container__block .container__item .formaRegistration .block, .container .container__block .container__item .formaLogin .block {
+          position: relative; }
+          .container .container__block .container__item .formaRegistration .block img, .container .container__block .container__item .formaLogin .block img {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 63px;
+            top: 33px; }
+        .container .container__block .container__item .formaRegistration a, .container .container__block .container__item .formaLogin a {
+          text-decoration: none;
+          font-weight: bold;
+          color: #4d55ff; }
+        .container .container__block .container__item .formaRegistration #formaRegistration span:last-child, .container .container__block .container__item .formaRegistration #formaLogin span:last-child, .container .container__block .container__item .formaLogin #formaRegistration span:last-child, .container .container__block .container__item .formaLogin #formaLogin span:last-child {
+          color: white;
+          padding: 25px 0px;
+          display: block; }
 
-.formaRegistration {
-  display: flex;
-  justify-content: center;
-  box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.2);
-  width: 20%;
-  margin: auto;
-  flex-direction: column;
-  text-align: center;
-  border-radius: 10px;
-  padding: 30px;
+.item {
+  transform-style: preserve-3d;
+  position: relative;
+  transition: all 1s; }
+
+.font-side {
+  position: absolute;
+  top: 0px;
+  transform: rotateY(180deg);
+  height: 368px; }
+
+.back-side {
+  position: relative;
   background: #ff96d8;
-  font-family: 'Ubuntu', sans-serif; }
-  .formaRegistration input {
-    outline: none;
-    padding: 10px 30px;
-    border: 0px;
-    border-bottom: 2px solid gray;
-    justify-content: center;
-    width: 220px;
-    margin-top: 20px;
-    border-radius: 5px; }
-  .formaRegistration input[type="submit"] {
-    display: flex;
-    border: 0px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #78abff;
-    margin: 20px auto 0;
-    cursor: pointer;
-    color: white;
-    font-weight: bold; }
-  .formaRegistration span:first-child {
-    color: white;
-    font-size: 20px;
-    padding: 10px; }
+  z-index: -1; }
 
-#formaRegistration {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  #formaRegistration .block {
-    position: relative; }
-  #formaRegistration img {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 32px;
-    left: 12px; }
+.side {
+  transition: all 1s;
+  backface-visibility: hidden;
+  border-radius: 5px; }
+
+.flip {
+  transform: rotateY(180deg) !important; }
 
 ::placeholder {
   margin-left: 30px; }
 
-.error {
+.error-registration, .error-login {
   color: red;
   display: none;
   padding-top: 5px; }
