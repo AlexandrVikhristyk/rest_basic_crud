@@ -127,8 +127,9 @@
 	margin-left: 30px;
 }
 
-.error-registration, .error-login {
+.error-registration, .error-login, .valid-error-login, .valid-error-registration {
 	color: red;
-	display: none;
+	/*display: none;*/
 	padding-top: 5px;
+	display: block;
 }

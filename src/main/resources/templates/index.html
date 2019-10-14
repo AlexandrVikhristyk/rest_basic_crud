@@ -17,7 +17,7 @@
                 <div class="block-around-forma">
                     <div class="formaLogin">
                         <span>Form Login</span>
-                        <form id="formaLogin" class="forma login" name="formaLogin">
+                        <form id="formaLogin" class="forma login" name="formaLogin" onsubmit="return false">
                             <div class="block">
                                 <img src="../static/css/img/email.svg" alt="icon-email">
                                 <input type="email" placeholder="Email" name="login" required>
@@ -50,7 +50,8 @@
                                 <img src="../static/css/img/person.svg" alt="icon-person" class="person2">
                                 <input type="password" placeholder="Confirm password" name="confirmPassword" required>
                             </div>
-                            <span class="error-registration"></span>
+                            <span class="error-registration"></span> 
+                            <span class="valid-error-registration"></span>
                             <input type="submit" value="Register">
                             <span>Already have on account?<a href="#" class="enter"> Log in</a></span>
                         </form>
