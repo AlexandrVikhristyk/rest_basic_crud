@@ -2,8 +2,10 @@ package com.petproject.test.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -13,7 +15,11 @@ import java.util.List;
 public class Theme {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Length(min = 4, max = 255, message = "Theme should be between 4 and 255 characters")
+    @NotBlank(message = "Please provide theme")
     private String theme;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "theme", cascade = CascadeType.ALL)
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "theme", cascade = CascadeType.ALL)
     private List<Test> tests;
 }

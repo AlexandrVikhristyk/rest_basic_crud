@@ -1,6 +1,5 @@
 package com.petproject.test.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,10 +8,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-//@Data
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "roles")
 public class Role {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +19,6 @@ public class Role {
 
     private String role;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<CustomUser> users;
 }

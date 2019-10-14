@@ -1,9 +1,9 @@
 package com.petproject.test.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -18,21 +18,24 @@ import java.util.Set;
 public class CustomUser {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonView(Views.Id.class)
     private Long id;
 
     @Email(message = "Incorrect email")
     @NotEmpty(message = "Please provide email")
+    @JsonView(Views.IdEmail.class)
     private String email;
 
-    @Length(min = 8, max = 32, message = "Password should be between 8 and 32")
     @NotEmpty(message = "Please provide password")
     private String password;
 
     @Transient
     private String confirmPassword;
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JsonView(Views.FullUser.class)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles;
 
     public CustomUser(String email, String password,String confirmPassword, Set<Role> roles) {
