@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(#e66465, #9198e5);
+  z-index: -1; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .container p {
+    color: white;
+    font-size: 20px;
+    padding: 10px; }
+  .container span {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin-top: 5px;
+    background-color: #e48cff;
+    width: 100px;
+    cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */
